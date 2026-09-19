@@ -119,6 +119,7 @@ ForensicOS/
 ├── blocks/
 └── gui/          # planned
 
+
 The "blocks/" directory contains individual installation scripts for each backend component, making the system easier to build, test and reproduce.
 
 GUI — next phase
