@@ -1,0 +1,23 @@
+{
+  "name": "ForensicOS",
+  "codename": "Alpha Beta Alpha",
+  "version": "0.1.0",
+  "language": "nl",
+  "paths": {
+    "cases": "cases",
+    "reports": "reports",
+    "logs": "logs",
+    "tests": "tests"
+  },
+  "modules": {
+    "forensics": "forensic",
+    "osint": "osint",
+    "rf": "rf",
+    "sweep": "sweep",
+    "surveillance": "surveillance",
+    "defense": "defense",
+    "terminal": "terminal",
+    "system": "system",
+    "cases": "cases"
+  }
+}

@@ -1,0 +1,2 @@
+# ForensicOS local IOC database
+# Voeg alleen indicatoren toe die je zelf wilt controleren.

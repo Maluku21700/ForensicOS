@@ -1,2 +1,12 @@
 .venv/ __pycache__/ *.pyc *.pyo *.log
 .env
+
+# Generated forensic/test artifacts
+evidence_*.txt
+compare_*.txt
+duplicate_*.txt
+*.forensic.txt
+
+# Python cache
+__pycache__/
+*.py[cod]
