@@ -1,160 +1,118 @@
 ForensicOS — Alpha Beta Alpha
 
-ForensicOS is a modular, Raspberry Pi-based forensic and defensive security toolkit designed for portable lab and investigation workflows.
+ForensicOS is a modular digital forensics and defensive security platform designed for Raspberry Pi. It is built to run both headless through SSH and with an optional graphical interface for the Waveshare PocketTerm35.
 
-The project is built around a lightweight Linux environment and is being developed for the Waveshare PocketTerm35 with a 640×480 touchscreen. The backend is intentionally built and tested before the graphical interface.
+🔎 Modules
 
-Current backend
+- Forensics — file analysis, hashing, metadata, signatures, hex viewing, strings, timelines, entropy, carving and file comparison
+- OSINT — public information analysis, DNS, IP, URL, HTTP, web technology and metadata analysis
+- RF / RTL-SDR — general RF and spectrum analysis
+- Network Sweep — interfaces, routes, neighbors, DNS, sockets and network status
+- Surveillance Detection — processes, connections, USB devices, services and sessions
+- Defense / Lab — firewall, ports, SUID, cron, timers, integrity checks and IOC analysis
+- Terminal — integrated Linux terminal functionality
+- System — hardware, storage, memory, temperature and system status
+- Case Management — cases, evidence and forensic reports
 
-ForensicOS currently contains modules for:
+🖥️ GUI
 
-- 🔍 Digital forensics
-  
-  - File hashing
-  - File information
-  - Recursive scanning
-  - Duplicate detection
-  - Hash verification
-  - Strings extraction
-  - Hex viewing
-  - Entropy analysis
-  - File signatures
-  - Timeline analysis
-  - Forensic reports
+The GUI is optional. The complete backend can run independently without a desktop environment.
 
-- 🌐 OSINT
-  
-  - URL analysis
-  - DNS analysis
-  - IP information
-  - HTTP headers
-  - robots.txt / sitemap analysis
-  - Email-domain analysis
-  - Web technology detection
-  - Username searching
-  - Metadata analysis
-  - RDW public-data tools
+This makes ForensicOS suitable for:
 
-- 📡 RF / RTL-SDR
-  
-  - Device detection
-  - RTL-SDR information
-  - Frequency tools
-  - Spectrum/power measurement
-  - RF logging
-  - Device status
+- Raspberry Pi Lite / headless systems
+- SSH administration
+- HDMI displays
+- VNC environments
+- Future PocketTerm35 deployments
 
-- 🖧 Network analysis
-  
-  - Interface inventory
-  - Routing information
-  - Neighbor/ARP information
-  - DNS configuration
-  - Socket inventory
-  - Listening-port inspection
+⚙️ Installation
 
-- 👁️ Surveillance detection
-  
-  - Process inventory
-  - Network connections
-  - Listening services
-  - USB inventory
-  - System services
-  - Login/session information
+1. Clone the repository
 
-- 🛡️ Defensive security
-  
-  - Firewall auditing
-  - Port auditing
-  - SUID auditing
-  - Cron auditing
-  - Systemd timer inspection
-  - File-integrity hashing
-  - Security summaries
+Using SSH:
 
-- 💻 Terminal
-  
-  - Command execution
-  - System utilities
-  - Network utilities
-  - Interactive ForensicOS shell
+git clone git@github.com:Maluku21700/ForensicOS.git
+cd ForensicOS
 
-- 🖥️ System
-  
-  - Hardware information
-  - Storage information
-  - Memory monitoring
-  - Temperature monitoring
-  - CPU/load information
-  - System status
+Or using HTTPS:
 
-- 📁 Case management
-  
-  - Case creation
-  - Evidence registration
-  - SHA-256 evidence hashing
-  - Case metadata
-  - JSON reports
+git clone https://github.com/Maluku21700/ForensicOS.git
+cd ForensicOS
 
-Architecture
+2. Run the installer
 
-The project is intentionally modular. Each major component lives in its own Python package and can be tested independently.
+chmod +x install.sh
+./install.sh
 
-ForensicOS/
-├── core/
-├── forensic/
-├── osint/
-├── rf/
-├── sweep/
-├── surveillance/
-├── defense/
-├── terminal/
-├── system/
-├── cases/
-├── tests/
-├── reports/
-├── logs/
-├── config/
-├── blocks/
-└── gui/          # planned
+3. Activate the Python virtual environment
 
-The "blocks/" directory contains individual installation scripts for each backend component, making the system easier to build, test and reproduce.
+source .venv/bin/activate
 
-GUI — next phase
+4. Run the complete backend test suite
 
-The backend is now being prepared for the next development phase: a custom touchscreen GUI for the Waveshare PocketTerm35.
+bash blocks/11_tests.sh
 
-Planned GUI features include:
+A successful installation should end with:
 
-- 640×480 touchscreen interface
-- Touch-friendly navigation
-- Main module dashboard
-- Forensic tools interface
-- OSINT interface
-- RF interface
-- Network tools
-- Defensive security tools
-- Case management
-- System monitoring
-- Integrated terminal
-- Dark forensic/lab aesthetic
+ALL TESTS: PASS
+Backend phase complete.
 
-Project status
+🚀 Starting ForensicOS
 
-Backend: 🟢 Built
-Module tests: 🟢 Implemented
-Integration testing: 🟢 Implemented
-Launcher: 🟢 Working
-GUI: 🟡 Next phase
-PocketTerm35 integration: 🟡 In development
+The backend can be started directly from the command line:
 
-Philosophy
+cd ~/ForensicOS
+source .venv/bin/activate
+PYTHONPATH="$PWD" python core/main.py
 
-ForensicOS is intended as a portable personal security and digital-forensics laboratory.
+The main menu will appear:
 
-The project focuses on modularity, transparency, reproducibility and defensive use. Tools are designed for systems and networks the user is authorized to inspect.
+[1] FORENSICS
+[2] OSINT
+[3] RF / RTL-SDR
+[4] NETWORK SWEEP
+[5] SURVEILLANCE
+[6] DEFENSE / LAB
+[7] TERMINAL
+[8] SYSTEM
+[9] CASE MANAGEMENT
+[0] EXIT
 
-Codename: Alpha Beta Alpha
-Platform: Raspberry Pi / Linux
-Interface: Waveshare PocketTerm35
-Status: Active development
+🧪 Development Blocks
+
+ForensicOS is developed using a modular block architecture. Each major subsystem has its own installer:
+
+blocks/
+├── 01_forensics.sh
+├── 02_osint.sh
+├── 03_rf.sh
+├── 04_sweep.sh
+├── 05_surveillance.sh
+├── 06_defense.sh
+├── 07_terminal.sh
+├── 08_system.sh
+├── 09_cases.sh
+├── 10_core.sh
+├── 11_tests.sh
+└── 12_gui.sh
+
+This allows individual modules to be developed, installed and tested independently.
+
+🔐 Intended Use
+
+ForensicOS is intended for authorized digital forensics, defensive security, research and controlled laboratory environments.
+
+Network, RF, OSINT and analysis functionality should only be used on systems, networks and data for which you have appropriate authorization.
+
+📌 Project Status
+
+Backend: ✅ Complete
+Core launcher: ✅ Complete
+Testing: ✅ PASS
+CLI: ✅ Operational
+GUI: 🚧 In development
+PocketTerm35: 🚧 Planned
+
+Version: "0.1.0"
+Codename: "Alpha Beta Alpha"
