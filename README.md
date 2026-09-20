@@ -30,12 +30,7 @@ This makes ForensicOS suitable for:
 
 1. Clone the repository
 
-Using SSH:
-
-git clone git@github.com:Maluku21700/ForensicOS.git
-cd ForensicOS
-
-Or using HTTPS:
+using HTTPS:
 
 git clone https://github.com/Maluku21700/ForensicOS.git
 cd ForensicOS
